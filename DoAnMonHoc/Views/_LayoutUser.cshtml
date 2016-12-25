@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns:fb='http://www.facebook.com/2008/fbml'>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - Cửa hàng điện thoại di động</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <!-- Fontawesome core CSS -->
+    <link href="~/fonts/font-awesome.min.css" rel="stylesheet" />
+    <!--GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- custom CSS here -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <!-- custom Slider -->
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.bxslider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Content/style1.css" media="screen" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/HinhHThong/icon.png" />
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1713272535662234";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Index")"><img src="~/HinhHThong/Logo.png" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Action("GioHangPartial", "GioHang")
+                    @Html.Partial("KiemSoat_Login")
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hỗ trợ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @Html.Action("Info_Dropdown","Index")
+                        </ul>
+                    </li>
+                    @Html.Partial("Hello")
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nhập từ khóa ..." class="form-control">
+                    </div>
+                    &nbsp;
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <h2>
+            <font>
+                <marquee id="marq" scrollamount="20" direction="right" loop="100" scrolldelay="0" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()" style="background:yellow">
+                    <font style="font-weight:bold" color="red"> Chào mừng quý khách </font>
+                </marquee>
+            </font>
+        </h2>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="slider_area">
+                    <div class="slider">
+                        <ul class="bxslider">
+                            @Html.Action("Load_Event","Index")
+                        </ul>
+                    </div>
+                </div>
+
+                <br />
+            </div>
+            <!-- /.col -->
+
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 col-sm-6 col-xs-6">
+                    <div style="position:absolute">
+                        <img style="width:100px" src="~/HinhHThong/icon-hot.gif" />
+                    </div>
+                    @Html.Action("DT_SL_MIN", "Index")
+                    <div style="position:absolute">
+                        <img style="width:100px" src="~/HinhHThong/icon-hot.gif" />
+                    </div>
+                    @Html.Action("DT_SL_MAX", "Index")
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <div class="list-group">
+                        <div class="lead">
+                            Điện thoại di động
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        @Html.Action("LAY_LOAI_DT", "Index")
+                    </ul>
+                </div>
+                <!-- /.div -->
+                <div>
+                    <div class="list-group">
+                        <div class="lead">
+                            Các sản phẩm phụ kiện
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        @Html.Action("LAY_LOAI_PK", "Index")
+                    </ul>
+                </div>
+                <!-- /.div -->
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-info"><a href="@Url.Action("DT_SAP_RA_MAT","Index")"> Sản phẩm sắp ra mắt </a></li>
+                        <li class="list-group-item list-group-item-warning"><a href="#"> Sản phẩm bán chạy </a></li>
+                        <li class="list-group-item list-group-item-danger"><a href="@Url.Action("DT_HET_HANG","Index")"> Sản phẩm đã hết hàng </a></li>
+                    </ul>
+                </div>
+                <div>
+                    <iframe frameborder="0" marginwidth="0" marginheight="0" src="http://thienduongweb.com/tool/weather/?r=1&w=1&g=1&col=1&d=0" width="100%" height="480" scrolling="yes"></iframe>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="row">
+                    <div>
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer -->
+        <div class="col-md-12 footer-box">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Thông tin Shop</strong>
+                    <hr />
+                    <p>
+                        @Html.Action("Info_Footer","Index")
+                    </p>
+                    <hr />
+                    <div class="btn btn-success">
+                        <a href="@Url.Action("Locate","Index")" style="color:white">
+                            Chi tiết
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <strong> Gửi ý kiến phản hồi nhanh </strong>
+                    <hr />
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required="required" placeholder="Họ Tên">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required="required" placeholder="Địa chỉ E-mail">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Nội dung"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Gửi phản hồi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+    <!-- /.col -->
+    <div class="col-md-12 end-box ">
+        &copy; 2016 | &nbsp; Giang Tuấn Chương | &nbsp; Phan Thanh Tân | &nbsp; 24x7 support | &nbsp; Email us: chuong72000@gmail.com
+    </div>
+    <!-- /.col -->
+    <!--Footer end -->
+    <!--Core JavaScript file  -->
+    
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--bootstrap JavaScript file  -->
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="~/Scripts/selectnav.min.js"></script>
+    <script type="text/javascript">
+    selectnav('nav', {
+    label: '-Navigation-',
+    nested: true,
+    indent: '-'
+    });
+    selectnav('f_menu', {
+    label: '-Navigation-',
+    nested: true,
+    indent: '-'
+    });
+    $('.bxslider').bxSlider({
+    mode: 'fade',
+    captions: true
+    });
+    </script>
+    <script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",53124]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
+
+</body>
+</html>
