@@ -1,0 +1,5 @@
+﻿@if (Session["Taikhoan"] == null)
+{
+    <li><a href="@Url.Action("Dangnhap","Nguoidung")">Đăng nhập</a></li>
+    <li><a href="@Url.Action("Dangky","Nguoidung")">Đăng ký</a></li>
+}

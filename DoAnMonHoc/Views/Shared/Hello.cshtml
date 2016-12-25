@@ -1,0 +1,5 @@
+﻿@if (@Session["Taikhoan"] != null)
+{
+    <li style="color:white"><a href="#" style="font-weight:bold">Xin chào, @Session["HoTenKH"]</a></li>
+    <li><a href="@Url.Action("Dangxuat","Nguoidung")">Thoát</a></li>
+}

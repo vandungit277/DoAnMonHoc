@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - Hệ thống quản trị</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <!-- Fontawesome core CSS -->
+    <link href="~/fonts/font-awesome.min.css" rel="stylesheet" />
+    <!--GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- custom CSS here -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/HinhHThong/icon.png" />
+    <script src="~/Scripts/js/js_admin.js"></script>
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Admin")"><img src="~/HinhHThong/Amin.png" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (int.Parse(Session["MA_PQ"].ToString()) == 1)
+                    {
+                        <li><a href="@Url.Action("SuaThongTinCH","Admin")">Thông tin cửa hàng</a></li>
+                    }
+                    <li><a href="@Url.Action("Index","Index")"><img src="~/HinhHThong/Logo.png" /></a></li>
+                    <li><a href="@Url.Action("DS_Event","Admin")">Danh sách sự kiện</a></li>
+                    <li><a href="@Url.Action("Info_Admin","Admin")" style="font-weight:bold">Xin chào, @Session["HoTen_Admin"]</a></li>
+                    <li><a href="@Url.Action("Logout_Admin","Admin")">Thoát</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <div class="list-group">
+                        <div class="lead">
+                            Quản lý điện thoại
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        <li>
+                            <a href="@Url.Action("DS_DienThoai","Admin")" class="list-group-item">Điện thoại</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("DS_LoaiDienThoai","Admin")" class="list-group-item">Loại điện thoại</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("DS_NhaCungCap","Admin")" class="list-group-item">Nhà cung cấp</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.div -->
+                <div>
+                    <div class="list-group">
+                        <div class="lead">
+                            Quản lý phụ kiện
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        <li>
+                            <a href="@Url.Action("DS_PhuKien","Admin")" class="list-group-item">Phụ kiện</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("DS_LoaiPhuKien","Admin")" class="list-group-item">Loại phụ kiện</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="list-group">
+                        <div class="lead">
+                            Quản lý khách hàng
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        <li>
+                            <a href="@Url.Action("DS_KhachHang","Admin")" class="list-group-item">Danh sách khách hàng</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="list-group">
+                        <div class="lead">
+                            Quản lý hóa đơn
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        <li>
+                            <a href="@Url.Action("DS_HoaDon","Admin")" class="list-group-item">Danh sách hóa đơn</a>
+                        </li>
+                    </ul>
+                </div>
+                @if (int.Parse(Session["MA_PQ"].ToString()) == 1)
+                {
+                    <div>
+                        <div class="list-group">
+                            <div class="lead">
+                                Quản lý nhân viên
+                            </div>
+                        </div>
+                        <ul class="list-group">
+                            <li>
+                                <a href="@Url.Action("DS_NhanVien", "Admin")" class="list-group-item">Danh sách nhân viên</a>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!-- /.col -->
+    <div class="col-md-12 end-box ">
+        &copy; 2016 | &nbsp; Giang Tuấn Chương | &nbsp; Phan Thanh Tân | &nbsp; 24x7 support | &nbsp; Email us: chuong72000@gmail.com
+    </div>
+    <!-- /.col -->
+    <!--Footer end -->
+    <!--Core JavaScript file  -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--bootstrap JavaScript file  -->
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>

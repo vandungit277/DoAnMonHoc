@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - Cửa hàng điện thoại di động</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <!-- Fontawesome core CSS -->
+    <link href="~/fonts/font-awesome.min.css" rel="stylesheet" />
+    <!--GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- custom CSS here -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <!-- custom Slider -->
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.bxslider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Content/style1.css" media="screen" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/HinhHThong/icon.png" />
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Index")"><img src="~/HinhHThong/Logo.png" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Action("GioHangPartial", "GioHang")
+                    @Html.Partial("KiemSoat_Login")
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hỗ trợ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @Html.Action("Info_Dropdown", "Index")
+                        </ul>
+                    </li>
+                    @Html.Partial("Hello")
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nhập từ khóa ..." class="form-control">
+                    </div>
+                    &nbsp;
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <h2>
+            <font>
+                <marquee id="marq" scrollamount="20" direction="right" loop="100" scrolldelay="0" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()" style="background:yellow">
+                    <font style="font-weight:bold" color="red"> Chào mừng quý khách </font>
+                </marquee>
+            </font>
+        </h2>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="slider_area">
+                    <div class="slider">
+                        <ul class="bxslider">
+                            <li><img style="width:850px; height:360px" src="~/HinhEvent/1.jpg" alt="" /></li>
+                            <li><img style="width:850px; height:360px" src="~/HinhEvent/2.jpg" alt="" /></li>
+                            <li><img style="width:850px; height:360px" src="~/HinhEvent/3.jpg" alt="" /></li>
+                            <li><img style="width:850px; height:360px" src="~/HinhEvent/4.jpg" alt="" /></li>
+                            <li><img style="width:850px; height:360px" src="~/HinhEvent/5.jpg" alt="" /></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <br />
+            </div>
+            <!-- /.col -->
+
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 col-sm-6 col-xs-6">
+                    <div style="position:absolute">
+                        <img style="width:100px" src="~/HinhHThong/icon-hot.gif" />
+                    </div>
+                    @Html.Action("DT_SL_MIN", "Index")
+                    <div style="position:absolute">
+                        <img style="width:100px" src="~/HinhHThong/icon-hot.gif" />
+                    </div>
+                    @Html.Action("DT_SL_MAX", "Index")
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div>
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.col -->
+    <div class="col-md-12 end-box ">
+        &copy; 2016 | &nbsp; Giang Tuấn Chương | &nbsp; Phan Thanh Tân | &nbsp; 24x7 support | &nbsp; Email us: chuong72000@gmail.com
+    </div>
+    <!-- /.col -->
+    <!--Footer end -->
+    <!--Core JavaScript file  -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--bootstrap JavaScript file  -->
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="~/Scripts/selectnav.min.js"></script>
+    <script type="text/javascript">
+    selectnav('nav', {
+    label: '-Navigation-',
+    nested: true,
+    indent: '-'
+    });
+    selectnav('f_menu', {
+    label: '-Navigation-',
+    nested: true,
+    indent: '-'
+    });
+    $('.bxslider').bxSlider({
+    mode: 'fade',
+    captions: true
+    });
+    </script>
+    <script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",53124]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
+
+</body>
+</html>
