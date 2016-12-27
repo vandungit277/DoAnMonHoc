@@ -75,7 +75,7 @@ namespace DoAnMonHoc.Models
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DIENTHOAIDIDONGConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DIENTHOAIDIDONGConnectionString2"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -216,18 +216,18 @@ namespace DoAnMonHoc.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LAY_DS_LOAI_DT")]
-		public ISingleResult<LAY_DS_LOAI_DTResult> LAY_DS_LOAI_DT()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<LAY_DS_LOAI_DTResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LAY_DS_LOAI_PK")]
 		public ISingleResult<LAY_DS_LOAI_PKResult> LAY_DS_LOAI_PK()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<LAY_DS_LOAI_PKResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LAY_DS_LOAI_DT")]
+		public ISingleResult<LAY_DS_LOAI_DTResult> LAY_DS_LOAI_DT()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<LAY_DS_LOAI_DTResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3274,68 +3274,6 @@ namespace DoAnMonHoc.Models
 		}
 	}
 	
-	public partial class LAY_DS_LOAI_DTResult
-	{
-		
-		private int _MA_LDT;
-		
-		private string _TEN_LDT;
-		
-		private System.Nullable<int> _SL;
-		
-		public LAY_DS_LOAI_DTResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MA_LDT", DbType="Int NOT NULL")]
-		public int MA_LDT
-		{
-			get
-			{
-				return this._MA_LDT;
-			}
-			set
-			{
-				if ((this._MA_LDT != value))
-				{
-					this._MA_LDT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEN_LDT", DbType="NVarChar(30)")]
-		public string TEN_LDT
-		{
-			get
-			{
-				return this._TEN_LDT;
-			}
-			set
-			{
-				if ((this._TEN_LDT != value))
-				{
-					this._TEN_LDT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SL", DbType="Int")]
-		public System.Nullable<int> SL
-		{
-			get
-			{
-				return this._SL;
-			}
-			set
-			{
-				if ((this._SL != value))
-				{
-					this._SL = value;
-				}
-			}
-		}
-	}
-	
 	public partial class LAY_DS_LOAI_PKResult
 	{
 		
@@ -3377,6 +3315,68 @@ namespace DoAnMonHoc.Models
 				if ((this._TEN_LPK != value))
 				{
 					this._TEN_LPK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SL", DbType="Int")]
+		public System.Nullable<int> SL
+		{
+			get
+			{
+				return this._SL;
+			}
+			set
+			{
+				if ((this._SL != value))
+				{
+					this._SL = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LAY_DS_LOAI_DTResult
+	{
+		
+		private int _MA_LDT;
+		
+		private string _TEN_LDT;
+		
+		private System.Nullable<int> _SL;
+		
+		public LAY_DS_LOAI_DTResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MA_LDT", DbType="Int NOT NULL")]
+		public int MA_LDT
+		{
+			get
+			{
+				return this._MA_LDT;
+			}
+			set
+			{
+				if ((this._MA_LDT != value))
+				{
+					this._MA_LDT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEN_LDT", DbType="NVarChar(30)")]
+		public string TEN_LDT
+		{
+			get
+			{
+				return this._TEN_LDT;
+			}
+			set
+			{
+				if ((this._TEN_LDT != value))
+				{
+					this._TEN_LDT = value;
 				}
 			}
 		}
