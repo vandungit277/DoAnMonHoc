@@ -246,6 +246,7 @@
     <Content Include="Views\Nguoidung\Dangky.cshtml" />
     <Content Include="Views\Nguoidung\Dangnhap.cshtml" />
     <Content Include="Views\Index\LAY_LOAI_DT.cshtml" />
+    <Content Include="Views\Index\DT_HET_HANG.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

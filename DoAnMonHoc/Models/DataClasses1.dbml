@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DIENTHOAIDIDONG" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=TIENANH\SQLEXPRESS;Initial Catalog=DIENTHOAIDIDONG;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DIENTHOAIDIDONGConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=DIENTHOAIDIDONG;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DIENTHOAIDIDONGConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="Ten_TK_Admin" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -151,4 +151,18 @@
       <Association Name="LOAIPHUKIEN_PHUKIEN" Member="LOAIPHUKIEN" ThisKey="MA_LPK" OtherKey="MA_LPK" Type="LOAIPHUKIEN" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.LAY_DS_LOAI_DT" Method="LAY_DS_LOAI_DT">
+    <ElementType Name="LAY_DS_LOAI_DTResult">
+      <Column Name="MA_LDT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TEN_LDT" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DS_LOAI_PK" Method="LAY_DS_LOAI_PK">
+    <ElementType Name="LAY_DS_LOAI_PKResult">
+      <Column Name="MA_LPK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TEN_LPK" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
