@@ -289,3 +289,7 @@ C:\Users\Toan\Desktop\DoAnMonHoc\DoAnMonHoc\bin\Microsoft.Owin.Security.Microsof
 C:\Users\Toan\Desktop\DoAnMonHoc\DoAnMonHoc\obj\Debug\DoAnMonHoc.csprojResolveAssemblyReference.cache
 C:\Users\Toan\Desktop\DoAnMonHoc\DoAnMonHoc\obj\Debug\DoAnMonHoc.dll
 C:\Users\Toan\Desktop\DoAnMonHoc\DoAnMonHoc\obj\Debug\DoAnMonHoc.pdb
+C:\Users\Aspire\Documents\GitHub\DoAnMonHoc\DoAnMonHoc\bin\PagedList.dll
+C:\Users\Aspire\Documents\GitHub\DoAnMonHoc\DoAnMonHoc\bin\PagedList.Mvc.dll
+C:\Users\Aspire\Documents\GitHub\DoAnMonHoc\DoAnMonHoc\bin\PagedList.xml
+C:\Users\Aspire\Documents\GitHub\DoAnMonHoc\DoAnMonHoc\bin\PagedList.Mvc.xml

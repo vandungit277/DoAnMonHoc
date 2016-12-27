@@ -253,6 +253,7 @@
     <Content Include="Views\Index\DETAILS.cshtml" />
     <Content Include="Views\Index\DETAILS1.cshtml" />
     <Content Include="Views\Index\DETAILS_PK.cshtml" />
+    <Content Include="Views\Index\DT_CUNG_LOAI.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
