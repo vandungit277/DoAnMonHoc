@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DIENTHOAIDIDONG" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=DIENTHOAIDIDONG;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DIENTHOAIDIDONGConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=TIENANH\SQLEXPRESS;Initial Catalog=DIENTHOAIDIDONG;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DIENTHOAIDIDONGConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="Ten_TK_Admin" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -9,20 +9,6 @@
       <Column Name="Sodt_Admin" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="MA_PQ" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="PhanQuyen_Admin" Member="PhanQuyen" ThisKey="MA_PQ" OtherKey="MA_PQ" Type="PhanQuyen" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PHUKIEN" Member="PHUKIENs">
-    <Type Name="PHUKIEN">
-      <Column Name="MA_PK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MA_LPK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TEN_PK" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MOTA_PK" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="GIABAN_PK" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="HINHANH_PK" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="SOLUONG_PK" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="PHUKIEN_CT_HOADON_PK" Member="CT_HOADON_PKs" ThisKey="MA_PK" OtherKey="MA_PK" Type="CT_HOADON_PK" />
-      <Association Name="PHUKIEN_CT_PHUKIEN" Member="CT_PHUKIENs" ThisKey="MA_PK" OtherKey="MA_PK" Type="CT_PHUKIEN" />
-      <Association Name="LOAIPHUKIEN_PHUKIEN" Member="LOAIPHUKIEN" ThisKey="MA_LPK" OtherKey="MA_LPK" Type="LOAIPHUKIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CT_HOADON" Member="CT_HOADONs">
@@ -41,16 +27,16 @@
       <Column Name="MA_PK" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SLMUA_PK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DGMUA_PK" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Association Name="PHUKIEN_CT_HOADON_PK" Member="PHUKIEN" ThisKey="MA_PK" OtherKey="MA_PK" Type="PHUKIEN" IsForeignKey="true" />
       <Association Name="HOADON_CT_HOADON_PK" Member="HOADON" ThisKey="MA_HD" OtherKey="MA_HD" Type="HOADON" IsForeignKey="true" />
+      <Association Name="PHUKIEN_CT_HOADON_PK" Member="PHUKIEN" ThisKey="MA_PK" OtherKey="MA_PK" Type="PHUKIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CT_PHUKIEN" Member="CT_PHUKIENs">
     <Type Name="CT_PHUKIEN">
       <Column Name="MA_PK" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MA_DT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="PHUKIEN_CT_PHUKIEN" Member="PHUKIEN" ThisKey="MA_PK" OtherKey="MA_PK" Type="PHUKIEN" IsForeignKey="true" />
       <Association Name="DIENTHOAI_CT_PHUKIEN" Member="DIENTHOAI" ThisKey="MA_DT" OtherKey="MA_DT" Type="DIENTHOAI" IsForeignKey="true" />
+      <Association Name="PHUKIEN_CT_PHUKIEN" Member="PHUKIEN" ThisKey="MA_PK" OtherKey="MA_PK" Type="PHUKIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CUAHANG" Member="CUAHANGs">
@@ -149,6 +135,20 @@
       <Column Name="TEN_PQ" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="MOTA_PQ" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Association Name="PhanQuyen_Admin" Member="Admins" ThisKey="MA_PQ" OtherKey="MA_PQ" Type="Admin" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHUKIEN" Member="PHUKIENs">
+    <Type Name="PHUKIEN">
+      <Column Name="MA_PK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MA_LPK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TEN_PK" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MOTA_PK" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="GIABAN_PK" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="HINHANH_PK" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SOLUONG_PK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PHUKIEN_CT_HOADON_PK" Member="CT_HOADON_PKs" ThisKey="MA_PK" OtherKey="MA_PK" Type="CT_HOADON_PK" />
+      <Association Name="PHUKIEN_CT_PHUKIEN" Member="CT_PHUKIENs" ThisKey="MA_PK" OtherKey="MA_PK" Type="CT_PHUKIEN" />
+      <Association Name="LOAIPHUKIEN_PHUKIEN" Member="LOAIPHUKIEN" ThisKey="MA_LPK" OtherKey="MA_LPK" Type="LOAIPHUKIEN" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
