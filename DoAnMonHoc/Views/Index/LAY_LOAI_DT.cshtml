@@ -1,0 +1,14 @@
+﻿@foreach (var item in Model)
+{
+    <a href="@Url.Action("DT_THEO_LOAI","Index",new { id = item.MA_LDT })" class="list-group-item">
+        @item.TEN_LDT
+        @if (item.SL == 0)
+        {
+            <span class="label label-primary pull-right" style="background-color:red"> @item.SL </span>
+        }
+        @if (item.SL > 0)
+        {
+            <span class="label label-primary pull-right" style="background-color:green"> @item.SL </span>
+        }
+    </a>
+}

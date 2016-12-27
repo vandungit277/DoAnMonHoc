@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnMonHoc.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -76,6 +77,7 @@ namespace DoAnMonHoc.Controllers
                 return RedirectToAction("Dangnhap");
             }
             return this.Dangky();
+        }
  [HttpGet]
         public ActionResult Dangnhap()
         {
