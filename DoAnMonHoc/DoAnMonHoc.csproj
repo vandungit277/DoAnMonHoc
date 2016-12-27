@@ -250,6 +250,9 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Index\LAY_LOAI_PK.cshtml" />
     <Content Include="Views\Index\DT_THEO_LOAI.cshtml" />
+    <Content Include="Views\Index\DETAILS.cshtml" />
+    <Content Include="Views\Index\DETAILS1.cshtml" />
+    <Content Include="Views\Index\DETAILS_PK.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

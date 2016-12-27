@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>
+    <font>
+        <marquee id="marq" scrollamount="5" direction="right" loop="100" scrolldelay="0" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" style="background:red">
+            <font color="white"> Thông tin chi tiết sản phẩm </font>
+        </marquee>
+    </font>
+</h2>
+
+<div class="col-md-12">
+    <div style="float: left; border-left: dotted 4px; border-color: azure; height: 450px;width: 450px">
+        <img src="~/Hinhsp/@Model.HINHANH_DT" alt="@Model.TEN_DT" style="height: 450px;width: 450px" />
+    </div>
+    <div class="col-md-12">
+        <h3> <span style="font-weight: bold; color: black">Tên sản phẩm:</span> <span style="color: red; font-size: 20pt"> @Model.TEN_DT </span> </h3>
+        <h4 style="color: black"> @Model.MOTA_DT </h4>
+        Mô tả sản phẩm: @Html.Raw(Model.MOTA_CT_DT)
+        <p> <span style="color:black"> Giá bán: </span><span style="color:red; font-weight:bold; font-size: 20pt"> @String.Format("{0:0,0}", @Model.GIABAN_DT) </span> <span style="color:black">vnđ</span></p>
+    </div>
+    <hr />
+    <div class="fb-comments"
+         data-href="http://localhost:53488/Index/DETAILS/@Model.MA_DT" data-width="100%" data-numposts="5">
+    </div>
+    <hr />
+    <div>
+        @Html.Action("DT_CUNG_LOAI", "Index", new { @MA_LDT = Model.MA_LDT, @MA_DT = Model.MA_DT })
+    </div>
+</div>
