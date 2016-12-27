@@ -249,6 +249,7 @@
     <Content Include="Views\Index\DT_HET_HANG.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Index\LAY_LOAI_PK.cshtml" />
+    <Content Include="Views\Index\DT_THEO_LOAI.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
