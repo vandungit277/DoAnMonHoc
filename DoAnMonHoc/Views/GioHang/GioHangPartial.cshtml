@@ -1,0 +1,8 @@
+﻿@if (Session["GioHangDT"] != null || Session["GioHangPK"] != null)
+{
+    <li>
+        <a href="@Url.Action("GioHang", "GioHang")" style="font-weight:bold">
+            Giỏ hàng (@ViewBag.TongSL)
+        </a>
+    </li>
+}

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Thành Công";
+    Layout = "~/Views/Shared/_LayoutHeadFooter.cshtml";
+}
+
+<h2>
+    <font>
+        <marquee id="marq" scrollamount="5" direction="right" loop="100" scrolldelay="0" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" style="background:red">
+            <font color="white"> Chân thành cảm ơn quý khách </font>
+        </marquee>
+    </font>
+</h2>
+<h2 style="text-align:center;color:red">
+    Mua hàng thành công
+</h2>
+<div class="col-md-2"></div>
+<h3 class="col-md-8" style="text-align:center">
+    Đơn hàng của quý khách đã được ghi nhận! Chúng tôi sẽ liên hệ quý khách trong thời gian sớm nhất để xác nhận đơn hàng!
+</h3>
+<div class="col-md-2"></div>
+<h2 class="col-md-12" style="text-align:center">
+    Kính chúc quý khách một ngày học tập và làm việc hiệu quả!
+</h2>
+<h4 class="col-md-12" style="text-align:center">@Html.ActionLink("Trang chủ", "Index", "Index")</h4>
+<h2>
+    <font>
+        <marquee id="marq" scrollamount="5" direction="right" loop="100" scrolldelay="0" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" style="background:red">
+            <font color="white"> Hẹn gặp lại quý khách </font>
+        </marquee>
+    </font>
+</h2>

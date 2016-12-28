@@ -1,0 +1,112 @@
+﻿@using DoAnMonHoc.Models
+@model List<GioHangDT>
+@{
+    ViewBag.Title = "Đơn đặt hàng";
+    Layout = "~/Views/Shared/_LayoutHeadFooter.cshtml";
+}
+
+<h2>
+    <font>
+        <marquee id="marq" scrollamount="5" direction="right" loop="100" scrolldelay="0" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" style="background:red">
+            <font color="white"> Vui lòng kiểm tra đơn đặt hàng của quý khách </font>
+        </marquee>
+    </font>
+</h2>
+<h3 style="text-align:center">Danh sách sản phẩm</h3>
+<table align="center" border="1">
+    <tr style="text-align:center;font-weight:bold">
+        <td class="col-md-1">Mã sản phẩm</td>
+        <td class="col-md-4">Tên sản phẩm</td>
+        <td class="col-md-1">Ảnh sản phẩm</td>
+        <td class="col-md-1">Số lượng</td>
+        <td class="col-md-1">Đơn giá</td>
+        <td class="col-md-1">Thành tiền</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td>@item._MA_DT</td>
+            <td>@item._TEN_DT</td>
+            <td><img src="~/Hinhsp/@item._HINHANH_DT" style="height:100px;width:100px" /></td>
+            <td>@item._SL_DT</td>
+            <td>@String.Format("{0:0,0}", item._DONGIA_DT)</td>
+            <td>@String.Format("{0:0,0}", item.ThanhTien)</td>
+        </tr>
+    }
+    @Html.Action("DatHang_PK", "GioHang");
+    <tr style="font-weight:bold;color:red">
+        <td colspan="4" style="text-align:center">Tổng số lượng sản phẩm: @ViewBag.TongSL      </td>
+        <td colspan="5" style="text-align:center">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien) vnđ </td>
+    </tr>
+    <tr>
+        <td colspan="9" style="font-size:20pt; text-align:center">@Html.ActionLink("Trở Về Giỏ Hàng", "GioHang", "GioHang")</td>
+    </tr>
+</table>
+<h2>
+    <font>
+        <marquee id="marq" scrollamount="5" direction="right" loop="100" scrolldelay="0" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" style="background:red">
+            <font color="white"> Vui lòng kiểm tra thông tin đặt hàng </font>
+        </marquee>
+    </font>
+</h2>
+<h3 style="text-align:center">Thông tin đơn đặt hàng</h3>
+@{
+    KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+}
+<table align="center" style="font-size:13pt">
+    @using (Html.BeginForm())
+    {
+        <tr style="height:40px">
+            <td>Họ tên khách hàng:</td>
+            <td style="width:10px"></td>
+            <td style="font-weight:bold">@kh.HOTEN_KH</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Số điện thoại xác nhận:</td>
+            <td style="width:10px"></td>
+            <td style="font-weight:bold">@kh.SODT_KH</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Họ tên người nhận:</td>
+            <td style="width:10px"></td>
+            <td style="font-weight:bold">
+                <input type="text" maxlength="30" value="@kh.HOTEN_KH" style="background-color:yellow" name="HoTen_NguoiNhan" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Số điện thoại người nhận:</td>
+            <td style="width:10px"></td>
+            <td style="font-weight:bold">
+                <input type="number" max="999999999999999" value="@kh.SODT_KH" style="background-color:yellow" name="Sdt_NguoiNhan" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Địa chỉ người nhận:</td>
+            <td style="width:10px"></td>
+            <td style="font-weight:bold">
+                <input type="text" maxlength="100" value="@kh.DIACHI_KH" style="background-color:yellow" name="DiaChi_NguoiNhan" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày đặt hàng:</td>
+            <td style="width:10px"></td>
+            <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày giao hàng:</td>
+            <td style="width:10px"></td>
+            <td style="font-weight:bold">
+                <input type="date" name="NgayGiao" required />
+                <p style="color:red">@ViewBag.ThongBao</p>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr style="height:40px">
+            <td></td>
+            <td style="width:10px"></td>
+            <td style="font-weight:bold; color:red">
+                <input type="submit" value="Đồng ý đặt hàng" />
+            </td>
+        </tr>
+    }
+</table>

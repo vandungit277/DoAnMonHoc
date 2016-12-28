@@ -1,0 +1,47 @@
+﻿@using DoAnMonHoc.Models
+@model List<GioHangPK>
+
+@if (ViewBag.TongSL_PK != 0)
+{
+    <h3 style="text-align:center">Danh sách phụ kiện</h3>
+    <table align="center" border="1">
+        <tr style="text-align:center;font-weight:bold">
+            <td class="col-md-1">Mã phụ kiện</td>
+            <td class="col-md-4">Tên phụ kiện</td>
+            <td class="col-md-1">Ảnh phụ kiện</td>
+            <td class="col-md-1">Số lượng</td>
+            <td class="col-md-1">Đơn giá</td>
+            <td class="col-md-1">Thành tiền</td>
+            <td class="col-md-1"></td>
+            <td class="col-md-1"></td>
+            <td class="col-md-1"></td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr style="text-align:center; font-weight:bold">
+                <td>@item._MA_PK</td>
+                <td>@item._TEN_PK</td>
+                <td><img src="~/Hinhsp/@item._HINHANH_PK" style="height:100px;width:100px" /></td>
+                @using (Html.BeginForm("CapNhatGioHang_PK", "GioHang", new { @_MA_PK = item._MA_PK }))
+                {
+                    <td>
+                        <input type="number" min="1" name="txtSL" value="@item._SL_PK" style="background-color:yellow; text-align:center" />
+                    </td>
+                    <td>@String.Format("{0:0,0}", @item._DONGIA_PK)</td>
+                    <td>@String.Format("{0:0,0}", @item.ThanhTien)</td>
+                    <td><a href="@Url.Action("DETAILS_PK", "Index", new { id = item._MA_PK })">Chi tiết</a></td>
+                    <td>@Html.ActionLink("Xóa", "XoaGioHang_PK", new { @_MA_PK = item._MA_PK })</td>
+                    <td><input type="submit" value="Cập nhật" /></td>
+                }
+            </tr>
+        }
+        <tr style="font-weight:bold;color:red">
+            <td colspan="4" style="text-align:center">Tổng số lượng sản phẩm: @ViewBag.TongSL_PK</td>
+            <td colspan="5" style="text-align:center">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien_PK) vnđ </td>
+        </tr>
+        <tr style="font-weight:bold;color:red;height:15px;text-align:center">
+            <td colspan="9">@Html.ActionLink("Xóa giỏ hàng phụ kiện", "ClearGioHang_PK")</td>
+        </tr>
+    </table>
+}
+

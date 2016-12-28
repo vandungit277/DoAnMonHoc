@@ -1,0 +1,77 @@
+﻿@using DoAnMonHoc.Models
+@model List<GioHangDT>
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Shared/_LayoutHeadFooter.cshtml";
+}
+
+<h2>
+    <font>
+        <marquee id="marq" scrollamount="5" direction="right" loop="100" scrolldelay="0" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" style="background:red">
+            <font color="white"> Giỏ hàng của quý khách </font>
+        </marquee>
+    </font>
+</h2>
+@if (ViewBag.TongSL_DT != 0)
+{
+    <h3 style="text-align:center">Danh sách điện thoại</h3>
+    <table align="center" border="1">
+        <tr style="text-align:center;font-weight:bold">
+            <td class="col-md-1">Mã điện thoại</td>
+            <td class="col-md-4">Tên điện thoại</td>
+            <td class="col-md-1">Ảnh điện thoại</td>
+            <td class="col-md-1">Số lượng</td>
+            <td class="col-md-1">Đơn giá</td>
+            <td class="col-md-1">Thành tiền</td>
+            <td class="col-md-1"></td>
+            <td class="col-md-1"></td>
+            <td class="col-md-1"></td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr style="text-align:center; font-weight:bold">
+                <td>@item._MA_DT</td>
+                <td>@item._TEN_DT</td>
+                <td><img src="~/Hinhsp/@item._HINHANH_DT" style="height:100px;width:100px" /></td>
+                @using (Html.BeginForm("CapNhatGioHang_DT", "GioHang", new { @_MA_DT = item._MA_DT }))
+                {
+                    <td>
+                        <input type="number" min="1" name="txtSL" value="@item._SL_DT" style="background-color:yellow; text-align:center" />
+                    </td>
+                    <td>@String.Format("{0:0,0}", item._DONGIA_DT)</td>
+                    <td>@String.Format("{0:0,0}", item.ThanhTien)</td>
+                    <td><a href="@Url.Action("DETAILS", "Index", new { id = item._MA_DT })">Chi tiết</a></td>
+                    <td>@Html.ActionLink("Xóa", "XoaGioHang_DT", new { @_MA_DT = item._MA_DT })</td>
+                    <td><input type="submit" value="Cập nhật" /></td>
+                }
+            </tr>
+        }
+        <tr style="font-weight:bold;color:red">
+            <td colspan="4" style="text-align:center">Tổng số lượng sản phẩm: @ViewBag.TongSL_DT      </td>
+            <td colspan="5" style="text-align:center">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien_DT) vnđ </td>
+        </tr>
+        <tr style="font-weight:bold;color:red;text-align:center">
+            <td colspan="9">@Html.ActionLink("Xóa giỏ hàng điện thoại", "ClearGioHang_DT")</td>
+        </tr>
+    </table>
+}
+@Html.Action("GioHang_PK", "GioHang")
+<h3 style="text-align:center">Thông tin chung</h3>
+<table class="col-md-12">
+    <tr>
+        <td class="col-md-6" style="text-align:right; font-weight:bold">Tổng số lượng sản phẩm đã đặt:</td>
+        <td style="width:50px"></td>
+        <td style="text-align:left"><font color="red">@ViewBag.TongSL</font> sản phẩm</td>
+    </tr>
+    <tr>
+        <td class="col-md-6" style="text-align:right; font-weight:bold">Tổng số tiền cần thanh toán:</td>
+        <td style="width:50px"></td>
+        <td style="text-align:left"><font color="red">@String.Format("{0:0,0}", ViewBag.TongTien)</font> vnđ </td>
+    </tr>
+    <tr style="font-weight:bold;color:blue;text-align:center">
+        <td colspan="3">@Html.ActionLink("Xóa toàn bộ giỏ hàng", "ClearGioHang")</td>
+    </tr>
+    <tr style="font-weight:bold;text-align:center">
+        <td colspan="3" style="font-size:20pt">@Html.ActionLink("ĐẶT HÀNG", "DatHang", "GioHang")</td>
+    </tr>
+</table>
