@@ -1,0 +1,45 @@
+﻿@model DoAnMonHoc.Models.NHACUNGCAP
+@{
+    ViewBag.Title = "Chi tiết nhà cung cấp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin chi tiết nhà cung cấp</h2>
+
+<div class="col-md-8">
+    <hr />
+    <table class="table" border="1">
+        <tr>
+            <td class="col-md-5">
+                Tên nhà cung cấp:
+            </td>
+
+            <td class="col-md-7">
+                @Html.DisplayFor(model => model.TEN_NCC)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5">
+                Địa chỉ nhà cung cấp:
+            </td>
+
+            <td class="col-md-7">
+                @Html.DisplayFor(model => model.DIACHI_NCC)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5">
+                Số điện thoại nhà cung cấp:
+            </td>
+
+            <td class="col-md-7">
+                @Html.DisplayFor(model => model.SODT_NCC)
+            </td>
+        </tr>
+    </table>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Suancc", new { id = Model.MA_NCC }) |
+        @Html.ActionLink("Quay lại", "DS_NhaCungCap")
+    </p>
+</div>
+

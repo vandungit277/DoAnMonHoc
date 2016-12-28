@@ -1,0 +1,58 @@
+﻿@model DoAnMonHoc.Models.NHACUNGCAP
+@{
+    ViewBag.Title = "Sửa nhà cung cấp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chỉnh sửa thông tin nhà cung cấp</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thông tin chi tiết</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MA_NCC)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_NCC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div style="font:18px; padding: 5px 0 0 5px">@Model.MA_NCC</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TEN_NCC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TEN_NCC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TEN_NCC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIACHI_NCC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DIACHI_NCC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DIACHI_NCC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SODT_NCC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" name="SODT_NCC" min="0" value="@Model.SODT_NCC" />
+                @Html.ValidationMessageFor(model => model.SODT_NCC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu lại" class="btn btn-default" /> |
+                @Html.ActionLink("Về trang quản lý nhà cung cấp", "DS_NhaCungCap")
+            </div>
+        </div>
+    </div>
+}
+

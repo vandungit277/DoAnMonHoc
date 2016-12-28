@@ -1,0 +1,59 @@
+﻿@using DoAnMonHoc.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<NHACUNGCAP>
+@{
+    ViewBag.Title = "Danh sách nhà cung cấp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý thông tin loại điện thoại</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Themmoincc")
+</p>
+<div class="col-md-12">
+    <table class="table" border="1">
+        <tr>
+            <th class="col-md-3" style="text-align:center">Tên nhà cung cấp</th>
+            <th class="col-md-4" style="text-align:center">Địa chỉ nhà cung cấp</th>
+            <th class="col-md-2" style="text-align:center">Số điện thoại nhà cung cấp</th>
+            <th class="col-md-1" style="text-align:center"></th>
+            <th class="col-md-1" style="text-align:center"></th>
+            <th class="col-md-1" style="text-align:center"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_NCC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIACHI_NCC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SODT_NCC)
+                </td>
+                <td>
+                    @Html.ActionLink("Chi tiết", "Chitietncc", new { id = item.MA_NCC })
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Suancc", new { id = item.MA_NCC })
+                </td>
+                <td>
+                    @Html.ActionLink("Xóa", "Xoancc", new { id = item.MA_NCC })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="MenuTrang" style="text-align:right">
+        @Html.PagedListPager(Model, page => Url.Action("DS_NhaCungCap", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+</div>
+
