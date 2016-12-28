@@ -275,6 +275,12 @@
     <Content Include="Views\Admin\Suancc.cshtml" />
     <Content Include="Views\Admin\DS_KhachHang.cshtml" />
     <Content Include="Views\Admin\Chitietkh.cshtml" />
+    <Content Include="Views\Admin\DS_HoaDon.cshtml" />
+    <Content Include="Views\Admin\Chitiethd.cshtml" />
+    <Content Include="Views\Admin\Chitiethd_dt.cshtml" />
+    <Content Include="Views\Admin\Chitiet_pk.cshtml" />
+    <Content Include="Views\Admin\Capnhathd.cshtml" />
+    <Content Include="Views\Admin\Xoahd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

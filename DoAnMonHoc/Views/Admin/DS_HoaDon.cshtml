@@ -1,0 +1,79 @@
+﻿@using DoAnMonHoc.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<HOADON>
+
+@{
+    ViewBag.Title = "DS Hóa Đơn";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý danh sách hóa đơn</h2>
+<hr />
+<table class="table" border="1">
+    <tr>
+        <th class="col-md-1" style="text-align:center">Ngày lập</th>
+        <th class="col-md-1" style="text-align:center">Ngày giao</th>
+        <th class="col-md-1" style="text-align:center">Tổng tiền</th>
+        <th class="col-md-2" style="text-align:center">Khách hàng</th>
+        <th class="col-md-2" style="text-align:center">Tình trạng thanh toán</th>
+        <th class="col-md-2" style="text-align:center">Tình trạng giao hàng</th>
+        <th class="col-md-1" style="text-align:center"></th>
+        <th class="col-md-1" style="text-align:center"></th>
+        <th class="col-md-1" style="text-align:center"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", item.NGAYLAP_HD)
+            </td>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", item.NGAYGIAO_HD)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.TONGTIEN_HD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.HOTEN_KH)
+            </td>
+            <td>
+                @if (item.THANHTOAN == true)
+                { <p>Đã thanh toán</p> }
+                @if (item.THANHTOAN == false)
+                { <p style="color:red">Chưa thanh toán</p> }
+            </td>
+            <td>
+                @if (item.GIAOHANG == true)
+                { <p>Đã giao hàng</p> }
+                @if (item.GIAOHANG == false)
+                { <p style="color:red">Chưa giao hàng</p> }
+            </td>
+            <td style="text-align:center">
+                @Html.ActionLink("Chi tiết", "Chitiethd", new { id = item.MA_HD })
+            </td>
+            <td style="text-align:center">
+                @Html.ActionLink("Cập nhật", "Capnhathd", new { id = item.MA_HD })
+            </td>
+            <td style="text-align:center">
+                @if (int.Parse(Session["MA_PQ"].ToString()) == 1)
+                {
+                    @Html.ActionLink("Xóa", "Xoahd", new { id = item.MA_HD })
+                }
+                else
+                {
+                    <p> Xóa </p>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="MenuTrang" style="text-align:right">
+    @Html.PagedListPager(Model, page => Url.Action("DS_HoaDon", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

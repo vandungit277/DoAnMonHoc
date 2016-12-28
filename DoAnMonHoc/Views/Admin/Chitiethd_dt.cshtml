@@ -1,0 +1,19 @@
+﻿@model IEnumerable<DoAnMonHoc.Models.CT_HOADON>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENTHOAI.TEN_DT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOLUONGMUA)
+        </td>
+        <td>
+            @String.Format("{0:0,0}", item.DONGIAMUA) vnđ
+        </td>
+        <td style="text-align:center">
+            @Html.ActionLink("Chi tiết", "Chitietdt", new { id = item.MA_DT })
+        </td>
+    </tr>
+}

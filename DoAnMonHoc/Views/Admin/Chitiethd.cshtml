@@ -1,0 +1,126 @@
+﻿@model DoAnMonHoc.Models.HOADON
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div style="text-align:center">
+    <h2>Thông tin hóa đơn</h2>
+</div>
+
+<div class="col-md-12">
+    <hr />
+    <table class="table" border="0" align="center">
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Mã hóa đơn:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6">
+                @Html.DisplayFor(model => model.MA_HD)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Họ tên khách hàng:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6">
+                @Html.DisplayFor(model => model.KHACHHANG.HOTEN_KH)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Ngày lập hóa đơn:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6">
+                @String.Format("{0:dd/MM/yyyy}", Model.NGAYLAP_HD)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Trị giá hóa đơn:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6">
+                @String.Format("{0:0,0} vnđ", Model.TONGTIEN_HD)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Ngày giao hàng:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6" style="color:red">
+                @String.Format("{0:dd/MM/yyyy}", Model.NGAYGIAO_HD)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Họ tên người nhận:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6" style="color:red">
+                @Html.DisplayFor(model => model.TEN_NGUOINHAN)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Địa chỉ người nhận:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6" style="color:red">
+                @Html.DisplayFor(model => model.DIACHI_NGUOINHAN)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Số điện thoại người nhận:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6" style="color:red">
+                @Html.DisplayFor(model => model.SODT_NGUOINHAN)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Tình trạng thanh toán:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6">
+                @if (Model.THANHTOAN == true)
+                { <p>Đã thanh toán</p> }
+                @if (Model.THANHTOAN == false)
+                { <p>Chưa thanh toán</p> }
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold; text-align:right">
+                Tình trạng giao hàng:
+            </td>
+            <td class="col-md-1"></td>
+            <td class="col-md-6">
+                @if (Model.GIAOHANG == true)
+                { <p>Đã giao hàng</p> }
+                @if (Model.GIAOHANG == false)
+                { <p>Chưa giao hàng</p> }
+            </td>
+        </tr>
+    </table>
+
+    <table class="table" border="1">
+        <tr>
+            <th class="col-md-5" style="text-align:center">Tên sản phẩm</th>
+            <th class="col-md-2" style="text-align:center">Số lượng mua</th>
+            <th class="col-md-3" style="text-align:center">Thành tiền</th>
+            <th class="col-md-2"></th>
+        </tr>
+        @Html.Action("Chitiethd_dt", "Admin", new { id = Model.MA_HD })
+        @Html.Action("Chitiet_pk", "Admin", new { id = Model.MA_HD })
+    </table>
+
+    <p>
+        @Html.ActionLink("Trở về trang quản lý hóa đơn", "DS_HoaDon")
+    </p>
+</div>
