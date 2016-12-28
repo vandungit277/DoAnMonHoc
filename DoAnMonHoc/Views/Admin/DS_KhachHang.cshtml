@@ -1,0 +1,67 @@
+﻿@using DoAnMonHoc.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<KHACHHANG>
+
+@{
+    ViewBag.Title = "DS Khách Hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý thông tin khách hàng</h2>
+<hr />
+<table class="table" border="1">
+    <tr>
+        <th class="col-md-1" style="text-align:center">Tên tài khoản</th>
+        <th class="col-md-2" style="text-align:center">Họ tên</th>
+        <th class="col-md-2" style="text-align:center">Ngày sinh</th>
+        <th class="col-md-2" style="text-align:center">Địa chỉ</th>
+        <th class="col-md-1" style="text-align:center">Số đt</th>
+        <th class="col-md-2" style="text-align:center">E-mail</th>
+        <th class="col-md-1" style="text-align:center">Giới tính</th>
+        <th class="col-md-1"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TAIKHOAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOTEN_KH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYSINH_KH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIACHI_KH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SODT_KH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td style="text-align:center">
+                @if (item.GIOITINH_KH == null)
+                { <p>...</p> }
+                @if (item.GIOITINH_KH == true)
+                { <p>nam</p> }
+                @if (item.GIOITINH_KH == false)
+                { <p>nữ</p> }
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "Chitietkh", new { id = item.MA_KH })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="MenuTrang" style="text-align:right">
+    @Html.PagedListPager(Model, page => Url.Action("DS_KhachHang", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

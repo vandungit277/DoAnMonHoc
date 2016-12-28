@@ -273,6 +273,8 @@
     <Content Include="Views\Admin\Chitietncc.cshtml" />
     <Content Include="Views\Admin\Xoancc.cshtml" />
     <Content Include="Views\Admin\Suancc.cshtml" />
+    <Content Include="Views\Admin\DS_KhachHang.cshtml" />
+    <Content Include="Views\Admin\Chitietkh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

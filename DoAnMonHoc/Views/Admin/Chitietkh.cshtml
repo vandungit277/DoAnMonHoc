@@ -1,0 +1,86 @@
+﻿@model DoAnMonHoc.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin chi tiết khách hàng</h2>
+
+<div class="col-md-8">
+    <hr />
+    <table class="table" border="1">
+        <tr>
+            <td class="col-md-5" style="font-weight:bold">
+                Tên tài khoản:
+            </td>
+
+            <td class="col-md-7">
+                @Html.DisplayFor(model => model.TAIKHOAN)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold">
+                Họ tên khách hàng:
+            </td>
+
+            <td class="col-md-7">
+                @Html.DisplayFor(model => model.HOTEN_KH)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold">
+                Ngày sinh:
+            </td>
+
+            <td class="col-md-7">
+                @String.Format("{0:dd/MM/yyyy}", Model.NGAYSINH_KH)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold">
+                Địa chỉ:
+            </td>
+
+            <td class="col-md-7">
+                @Html.DisplayFor(model => model.DIACHI_KH)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold">
+                Số điện thoại:
+            </td>
+
+            <td class="col-md-7">
+                @Html.DisplayFor(model => model.SODT_KH)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold">
+                E-mail:
+            </td>
+
+            <td class="col-md-7">
+                @Html.DisplayFor(model => model.EMAIL)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-5" style="font-weight:bold">
+                Giới tính:
+            </td>
+
+            <td class="col-md-7">
+                @if (Model.GIOITINH_KH == null)
+                { <p>...</p> }
+                @if (Model.GIOITINH_KH == true)
+                { <p>nam</p> }
+                @if (Model.GIOITINH_KH == false)
+                { <p>nữ</p> }
+            </td>
+        </tr>
+    </table>
+    <p>
+        @Html.ActionLink("Quay lại trang quản lý khách hàng", "DS_KhachHang")
+    </p>
+</div>
+
