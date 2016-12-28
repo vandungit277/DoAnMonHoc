@@ -1,0 +1,82 @@
+﻿@using DoAnMonHoc.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<PHUKIEN>
+@{
+    ViewBag.Title = "T&C Shop";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>
+    <font>
+        <marquee id="marq" scrollamount="5" direction="right" loop="100" scrolldelay="0" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" style="background:red">
+            <font color="white"> Chào mừng quý khách </font>
+        </marquee>
+    </font>
+</h2>
+<div class="row">
+    @foreach (var pk in Model)
+    {
+        <div class="item-pro-home">
+            <a href="@Url.Action("DETAILS_PK","Index", new { id = pk.MA_PK})">
+                <div class="item-img-pro-home">
+                    <div class="demo-3">
+                        <figure>
+                            <img style="display:block;
+                                 position:relative;
+                                 z-index:10;
+                                 backface-visibility:hidden;
+                                 -webkit-transition:all .5s;
+                                 -moz-transition:all .5s;
+                                 transition:all .5s;
+                                 width:240px; height:240px"
+                                 src="~/Hinhsp/@pk.HINHANH_PK" alt="@pk.TEN_PK" />
+                            <figcaption>
+                                <p>
+                                    <img style="-webkit-transform:rotateY(180deg);
+                                        -moz-transform:rotateY(180deg);
+                                        transform:rotateY(180deg);
+                                        width:240px; height:240px"
+                                         src="~/Hinhsp/@pk.HINHANH_PK" alt="@pk.TEN_PK" />
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <h4><font color="black"><strong>@pk.TEN_PK</strong></font></h4>
+                </div>
+            </a>
+            <div>
+                <p>
+                    <h5> <font color="red"> Giá: @String.Format("{0:0,0}", @pk.GIABAN_PK) </font> <font color="black">vnđ</font></h5>
+                </p>
+            </div>
+            <div class="ratings">
+                <font color="yellow">
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </font>
+            </div>
+            <a href="@Url.Action("ThemGioHang_PK","GioHang",new { @_MA_PK = pk.MA_PK, @strURL = Request.Url.ToString() })" class="btn btn-success" role="button">Đặt mua</a>
+            <a href="@Url.Action("DETAILS_PK","Index", new { id = pk.MA_PK})" class="btn btn-primary" role="button">Thông tin chi tiết</a>
+        </div>
+    }
+</div>
+@if (Model.Count > 9)
+{
+    <div class="MenuTrang" style="text-align:right">
+        Html.PagedListPager(Model, page => Url.Action("PK_THEO_LOAI", new { page = page }))
+    </div>
+}
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
