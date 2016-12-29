@@ -292,6 +292,11 @@
     <Content Include="Views\Index\DT_SL_MAX.cshtml" />
     <Content Include="Views\Index\Info_Footer.cshtml" />
     <Content Include="Views\Index\Info_Dropdown.cshtml" />
+    <Content Include="Views\Admin\DS_NhanVien.cshtml" />
+    <Content Include="Views\Admin\Themmoinv.cshtml" />
+    <Content Include="Views\Admin\Chitietnv.cshtml" />
+    <Content Include="Views\Admin\Xoanv.cshtml" />
+    <Content Include="Views\Admin\Suanv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

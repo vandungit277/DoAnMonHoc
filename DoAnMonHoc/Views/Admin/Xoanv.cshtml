@@ -1,0 +1,74 @@
+﻿@model DoAnMonHoc.Models.Admin
+
+@{
+    ViewBag.Title = "Xóa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xác nhận thông tin nhân viên</h2>
+
+<h3>Bạn có thực sự muốn xóa?</h3>
+<div class="col-md-8">
+    <hr />
+    <table class="table" border="1">
+        <tr>
+            <td class="col-md-4" style="font-weight:bold">
+                Tên tài khoản:
+            </td>
+
+            <td class="col-md-8">
+                @Html.DisplayFor(model => model.Ten_TK_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                Họ tên tài khoản:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Hoten_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                Địa chỉ tài khoản:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Diachi_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                Số điện thoại liên lạc:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Sodt_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                Chức vụ tài khoản:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.PhanQuyen.TEN_PQ)
+            </td>
+        </tr>
+    </table>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Đồng ý xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "DS_NhanVien")
+        </div>
+    }
+</div>
