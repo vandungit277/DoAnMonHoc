@@ -1,0 +1,77 @@
+﻿@model DoAnMonHoc.Models.Admin
+
+@{
+    ViewBag.Title = "Thông Tin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin nhân viên</h2>
+
+<div class="col-md-8">
+    <hr />
+    <table class="table" border="1">
+        <tr>
+            <td class="col-md-4" style="font-weight:bold">
+                Tên tài khoản:
+            </td>
+
+            <td class="col-md-8">
+                @Html.DisplayFor(model => model.Ten_TK_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col-md-4" style="font-weight:bold">
+                Mật khẩu:
+            </td>
+
+            <td class="col-md-8">
+                @Html.DisplayFor(model => model.MatKhau_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                Họ tên tài khoản:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Hoten_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                Địa chỉ tài khoản:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Diachi_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                Số điện thoại liên lạc:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Sodt_Admin)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold">
+                Chức vụ tài khoản:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.PhanQuyen.TEN_PQ)
+            </td>
+        </tr>
+    </table>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Suanv", new { tentk = Model.Ten_TK_Admin }) |
+        @Html.ActionLink("Quay lại", "DS_NhanVien")
+    </p>
+</div>

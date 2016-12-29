@@ -1,0 +1,73 @@
+﻿@model DoAnMonHoc.Models.Admin
+
+@{
+    ViewBag.Title = "Sửa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thay đổi thông tin nhân viên</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thông tin chi tiết</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Ten_TK_Admin)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ten_TK_Admin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div style="font:18px; padding: 5px 0 0 5px">@Model.Ten_TK_Admin</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MatKhau_Admin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="password" name="MatKhau_Admin" value="@Model.MatKhau_Admin" />
+                @Html.ValidationMessageFor(model => model.MatKhau_Admin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hoten_Admin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Hoten_Admin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Hoten_Admin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Diachi_Admin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Diachi_Admin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Diachi_Admin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sodt_Admin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" name="Sodt_Admin" value="@Model.Sodt_Admin" min="0" />
+                @Html.ValidationMessageFor(model => model.Sodt_Admin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_PQ, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_PQ")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu lại" class="btn btn-default" /> |
+                @Html.ActionLink("Quay lại", "DS_NhanVien")
+            </div>
+        </div>
+    </div>
+}
