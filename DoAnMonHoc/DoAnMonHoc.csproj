@@ -292,6 +292,11 @@
     <Content Include="Views\Index\DT_SL_MAX.cshtml" />
     <Content Include="Views\Index\Info_Footer.cshtml" />
     <Content Include="Views\Index\Info_Dropdown.cshtml" />
+    <Content Include="Views\Admin\DS_Event.cshtml" />
+    <Content Include="Views\Admin\ThemmoiEvent.cshtml" />
+    <Content Include="Views\Admin\ChitietEvent.cshtml" />
+    <Content Include="Views\Admin\XoaEvent.cshtml" />
+    <Content Include="Views\Admin\SuaEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

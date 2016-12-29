@@ -1,0 +1,51 @@
+﻿@model DoAnMonHoc.Models.EVENT
+
+@{
+    ViewBag.Title = "Sửa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sửa thông tin sự kiện</h2>
+
+@using (Html.BeginForm("SuaEvent", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MA_EVENT)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_EVENT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div style="font:18px; padding: 5px 0 0 5px">@Model.MA_EVENT</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TEN_EVENT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TEN_EVENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TEN_EVENT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HINH_EVENT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="HinhAnh" />
+                <p style="color:red">@ViewBag.HinhAnh</p>
+                <div>(Ảnh hiện tại)</div>
+                <img src="@Url.Content("~/HinhEvent/" + Model.HINH_EVENT)" style="width:auto;height:120px" />
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu lại" class="btn btn-default" /> |
+                @Html.ActionLink("Quay lại danh sách sự kiện", "DS_Event")
+            </div>
+        </div>
+    </div>
+}

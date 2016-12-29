@@ -1,0 +1,36 @@
+﻿@model DoAnMonHoc.Models.EVENT
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin chi tiết sự kiện</h2>
+
+<div class="col-md-12">
+    <hr />
+    <table class="table" border="1">
+        <tr>
+            <td class="col-md-4" style="font-weight:bold">
+                Tên sự kiện:
+            </td>
+
+            <td class="col-md-8">
+                @Html.DisplayFor(model => model.TEN_EVENT)
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-4" style="font-weight:bold">
+                Hình ảnh sự kiện:
+            </td>
+
+            <td class="col-md-8">
+                <img src="@Url.Content("~/HinhEvent/" + Model.HINH_EVENT)" style="height:120px;width:auto" />
+            </td>
+        </tr>
+    </table>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "SuaEvent", new { id = Model.MA_EVENT }) |
+        @Html.ActionLink("Quay lại", "DS_Event")
+    </p>
+</div>
