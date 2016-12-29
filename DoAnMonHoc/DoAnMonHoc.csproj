@@ -287,6 +287,11 @@
     <Content Include="Views\Admin\Sualpk.cshtml" />
     <Content Include="Views\Admin\Info_Admin.cshtml" />
     <Content Include="Views\Admin\Edit_Admin.cshtml" />
+    <Content Include="Views\Index\Load_Event.cshtml" />
+    <Content Include="Views\Index\DT_SL_MIN.cshtml" />
+    <Content Include="Views\Index\DT_SL_MAX.cshtml" />
+    <Content Include="Views\Index\Info_Footer.cshtml" />
+    <Content Include="Views\Index\Info_Dropdown.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
