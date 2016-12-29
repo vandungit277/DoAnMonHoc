@@ -281,6 +281,10 @@
     <Content Include="Views\Admin\Chitiet_pk.cshtml" />
     <Content Include="Views\Admin\Capnhathd.cshtml" />
     <Content Include="Views\Admin\Xoahd.cshtml" />
+    <Content Include="Views\Admin\DS_LoaiPhuKien.cshtml" />
+    <Content Include="Views\Admin\Themmoilpk.cshtml" />
+    <Content Include="Views\Admin\Xoalpk.cshtml" />
+    <Content Include="Views\Admin\Sualpk.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DoAnMonHoc.Models.LOAIPHUKIEN>
+
+@{
+    ViewBag.Title = "DS Loại Phụ Kiện";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý thông tin loại phụ kiện</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Themmoilpk")
+</p>
+<div class="col-md-5">
+    <table class="table" border="1">
+        <tr>
+            <th class="col-md-3" style="text-align:center">Tên loại phụ kiện</th>
+            <th class="col-md-1" style="text-align:center"></th>
+            <th class="col-md-1" style="text-align:center"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_LPK)
+                </td>
+                <td style="text-align:center">
+                    @Html.ActionLink("Sửa", "Sualpk", new { id = item.MA_LPK })
+                </td>
+                <td style="text-align:center">
+                    @Html.ActionLink("Xóa", "Xoalpk", new { id = item.MA_LPK })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
