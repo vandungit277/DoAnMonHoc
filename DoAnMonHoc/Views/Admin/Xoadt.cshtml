@@ -1,0 +1,114 @@
+﻿@model DoAnMonHoc.Models.DIENTHOAI
+
+@{
+    ViewBag.Title = "Xóa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xác nhận thông tin điện thoại</h2>
+
+<h3>Bạn có thực sự muốn xóa điện thoại này?</h3>
+<div class="col-md-6">
+    <hr />
+    <table class="table" border="1">
+        <tr>
+            <td class="col-md-4">
+                Tên điện thoại:
+            </td>
+
+            <td class="col-md-8">
+                @Html.DisplayFor(model => model.TEN_DT)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Mô tả:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.MOTA_DT)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Mô tả chi tiết:
+            </td>
+
+            <td style="text-align:justify">
+                @Html.DisplayFor(model => model.MOTA_CT_DT)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Giá bán:
+            </td>
+
+            <td>
+                @String.Format("{0:0,0}", Model.GIABAN_DT) vnđ
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Số lượng tồn:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.SOLUONGTON)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Hình ảnh 1:
+            </td>
+
+            <td>
+                <img src="@Url.Content("~/Hinhsp/" + Model.HINHANH_DT)" style="height:120px;width:120px" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Hình ảnh 2:
+            </td>
+
+            <td>
+                <img src="@Url.Content("~/Hinhsp/" + Model.HINHANH_DT2)" style="height:120px;width:120px" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Ngày nhập hàng:
+            </td>
+
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", Model.NGAYNHAP_DT)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Loại điện thoại:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.LOAIDIENTHOAI.TEN_LDT)
+            </td>
+        </tr>
+
+    </table>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Đồng ý xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "DS_DienThoai")
+        </div>
+    }
+</div>

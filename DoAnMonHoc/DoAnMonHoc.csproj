@@ -292,19 +292,25 @@
     <Content Include="Views\Index\DT_SL_MAX.cshtml" />
     <Content Include="Views\Index\Info_Footer.cshtml" />
     <Content Include="Views\Index\Info_Dropdown.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Admin\DS_Event.cshtml" />
     <Content Include="Views\Admin\ThemmoiEvent.cshtml" />
     <Content Include="Views\Admin\ChitietEvent.cshtml" />
     <Content Include="Views\Admin\XoaEvent.cshtml" />
     <Content Include="Views\Admin\SuaEvent.cshtml" />
-=======
     <Content Include="Views\Admin\DS_NhanVien.cshtml" />
     <Content Include="Views\Admin\Themmoinv.cshtml" />
     <Content Include="Views\Admin\Chitietnv.cshtml" />
     <Content Include="Views\Admin\Xoanv.cshtml" />
     <Content Include="Views\Admin\Suanv.cshtml" />
->>>>>>> origin/master
+    <Content Include="Views\Admin\DS_DienThoai.cshtml" />
+    <Content Include="Views\Admin\DS_LoaiDienThoai.cshtml" />
+    <Content Include="Views\Admin\Themmoidt.cshtml" />
+    <Content Include="Views\Admin\Chitietdt.cshtml" />
+    <Content Include="Views\Admin\Xoadt.cshtml" />
+    <Content Include="Views\Admin\Suadt.cshtml" />
+    <Content Include="Views\Admin\Themmoildt.cshtml" />
+    <Content Include="Views\Admin\Xoaldt.cshtml" />
+    <Content Include="Views\Admin\Sualdt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
