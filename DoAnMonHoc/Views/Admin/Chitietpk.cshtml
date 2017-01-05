@@ -1,0 +1,78 @@
+﻿@model DoAnMonHoc.Models.PHUKIEN
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin chi tiết phụ kiện</h2>
+
+<div class="col-md-6">
+    <hr />
+    <table class="table" border="1">
+        <tr>
+            <td class="col-md-4">
+                Tên phụ kiện:
+            </td>
+
+            <td class="col-md-8">
+                @Html.DisplayFor(model => model.TEN_PK)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Mô tả:
+            </td>
+
+            <td>
+                @Html.Raw(Model.MOTA_PK)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Giá bán:
+            </td>
+
+            <td>
+                @String.Format("{0:0,0}", Model.GIABAN_PK) vnđ
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Số lượng tồn:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.SOLUONG_PK)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Hình ảnh:
+            </td>
+
+            <td>
+                <img src="@Url.Content("~/Hinhsp/" + Model.HINHANH_PK)" style="height:120px;width:120px" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Loại phụ kiện:
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.LOAIPHUKIEN.TEN_LPK)
+            </td>
+        </tr>
+
+    </table>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Suapk", new { id = Model.MA_PK }) |
+        @Html.ActionLink("Quay lại", "DS_PhuKien")
+    </p>
+</div>

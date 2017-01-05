@@ -311,6 +311,11 @@
     <Content Include="Views\Admin\Themmoildt.cshtml" />
     <Content Include="Views\Admin\Xoaldt.cshtml" />
     <Content Include="Views\Admin\Sualdt.cshtml" />
+    <Content Include="Views\Admin\DS_PhuKien.cshtml" />
+    <Content Include="Views\Admin\Themmoipk.cshtml" />
+    <Content Include="Views\Admin\Chitietpk.cshtml" />
+    <Content Include="Views\Admin\Xoapk.cshtml" />
+    <Content Include="Views\Admin\Suapk.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
