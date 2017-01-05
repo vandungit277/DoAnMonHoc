@@ -316,6 +316,8 @@
     <Content Include="Views\Admin\Chitietpk.cshtml" />
     <Content Include="Views\Admin\Xoapk.cshtml" />
     <Content Include="Views\Admin\Suapk.cshtml" />
+    <Content Include="Views\Admin\SuaThongTinCH.cshtml" />
+    <Content Include="Views\Index\Locate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
